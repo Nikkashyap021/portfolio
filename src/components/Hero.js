@@ -17,9 +17,9 @@ function Hero() {
     }, []);
 
     return (
-        <div className="hero">
-            <h1>Cloud Engineer</h1>
-            <p>{dateTime}</p>
+        <div className="text-center my-10">
+            <h1 className="text-4xl font-bold">Cloud Engineer</h1>
+            <p className="mt-2 text-lg text-gray-200">{dateTime}</p>
         </div>
     );
 }
