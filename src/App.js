@@ -1,14 +1,21 @@
 import React from "react";
+import { Routes, Route } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
-import Hero from "./components/Hero";
-import Projects from "./components/Projects";
 import Footer from "./components/Footer";
 import background_image from "./assets/background.jpg";
+
+// Pages
+import Home from "./pages/Home";
+import Blog from "./pages/Blog";
+import Education from "./pages/Education";
+import Profile from "./pages/Profile";
+import Settings from "./pages/Settings";
+
 function App() {
   return (
     <div className="h-screen w-screen flex items-center justify-center bg-gray-900">
-      {/* Main Container with rounded background */}
+      {/* Main container with rounded background */}
       <div
         className="h-[95vh] w-[95vw] rounded-3xl overflow-hidden shadow-2xl flex"
         style={{ backgroundImage: `url(${background_image})` }}
@@ -17,10 +24,22 @@ function App() {
         <Sidebar />
 
         {/* Content Area */}
-        <main className="flex-1 flex flex-col justify-between p-6 text-white bg-black/40">
+        <main className="flex-1 flex flex-col text-white bg-black/40 p-2">
+          {/* Header */}
           <Header />
-          <Hero />
-          <Projects />
+
+          {/* Page content grows to fill the space between header and footer */}
+          <div className="flex-1 overflow-y-auto p-6">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/education" element={<Education />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/settings" element={<Settings />} />
+            </Routes>
+          </div>
+
+          {/* Footer */}
           <Footer />
         </main>
       </div>

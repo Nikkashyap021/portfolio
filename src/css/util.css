@@ -1,0 +1,6 @@
+.sidebar-icon {
+  @apply w-8 h-8 cursor-pointer transition transform hover:scale-110;
+}
+.footer-icon {
+  @apply w-10 h-10 cursor-pointer transition transform hover:scale-150;
+}
