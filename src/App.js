@@ -10,8 +10,9 @@ import Home from "./pages/Home";
 import Blog from "./pages/Blog";
 import Education from "./pages/Education";
 import Profile from "./pages/Profile";
-import Settings from "./pages/Settings";
-
+import Settings from "./pages/Settings"
+import GitHubPage from "./pages/GitHubPage";
+import LinkedInPage from "./pages/LinkedInPage";
 function App() {
   return (
     <div className="h-screen w-screen flex items-center justify-center bg-gray-900">
@@ -36,6 +37,8 @@ function App() {
               <Route path="/education" element={<Education />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/settings" element={<Settings />} />
+              <Route path="/github" element={<GitHubPage />} />
+              <Route path="/linkedin" element={<LinkedInPage />} />
             </Routes>
           </div>
 
