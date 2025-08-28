@@ -33,7 +33,12 @@ function Sidebar() {
               }`
             }
           >
-            <img src={icon} alt={label} className="w-8 h-8" />
+            <img
+              src={icon}
+              alt={label}
+              className={`w-8 h-8 transition-transform duration-500 
+    ${label === "Settings" ? "hover:rotate-180" : ""}`}
+            />
             <span className="text-xs">{label}</span>
           </NavLink>
         ))}

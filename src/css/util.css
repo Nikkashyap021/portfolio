@@ -1,6 +1,30 @@
 .sidebar-icon {
   @apply w-8 h-8 cursor-pointer transition transform hover:scale-110;
 }
+
 .footer-icon {
   @apply w-10 h-10 cursor-pointer transition transform hover:scale-150;
+}
+
+@keyframes spin-slow {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 1s linear;
+}
+
+.hover\:animate-spin-slow:hover {
+  animation: spin-slow 0.5s linear;
+}
+
+.hover\:animate-spin-once:hover {
+  animation: spin-once 0.6s linear;
+  /* runs only once */
 }
