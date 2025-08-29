@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { fetchMediumPosts } from "../network/medium";
-
+import loadingIcon from "../assets/gif/Book_loading_gif.gif"
 function MediumPage({ setActiveIcon }) {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -60,6 +60,7 @@ function MediumPage({ setActiveIcon }) {
               className="text-sm text-blue-400 hover:underline"
             >
               {profile.url}
+              
             </a>
           </div>
         </div>
@@ -68,8 +69,9 @@ function MediumPage({ setActiveIcon }) {
         <div className="flex-1 overflow-auto mt-3 mb-3 pt-4 pb-4 space-y-4">
           {loading ? (
             <div className="flex items-center justify-center h-full text-white text-lg">
-              Loading Medium posts...
-            </div>
+              
+               <img src={loadingIcon} alt="book_loading" className="w-10 h-10" />
+              </div>
           ) : (
             posts.map((post, idx) => (
               <div
