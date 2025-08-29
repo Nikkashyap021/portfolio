@@ -271,29 +271,14 @@
 // export default LinkedInPage;
 
 
-
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
-function LinkedInPage({ setActiveIcon }) {
-    const [isVisible, setIsVisible] = useState(false);
-    const navigate = useNavigate();
+function LinkedInPage({ close, minimize }) {
+  const [isVisible, setIsVisible] = useState(false);
 
-    useEffect(() => {
-        setIsVisible(true);
-    }, []);
-
-    const handleClose = async () => {
-        await setIsVisible(false);
-
-        await setActiveIcon(null); // 👈 deactivate LinkedIn in footer
-// console.log("cross --->" ,setActiveIcon("linkedInCross"));
-
-        setTimeout(() => {
-            navigate("/"); // navigate home
-        }, 300);
-    };
-
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
         const iframeContent = `
    <!DOCTYPE html>
 <html lang="en">
@@ -520,30 +505,32 @@ function LinkedInPage({ setActiveIcon }) {
   `;
 
     return (
-        <div className="flex flex-col h-full p-2">
-            <div
-                className={`flex flex-col bg-black/80 border-4 border-gray-700 rounded-xl transform transition-all duration-300 w-full h-full
-                ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}
-            >
-                {/* Top bar */}
-                <div className="flex items-center justify-between bg-gray-900 rounded-t-xl h-10 px-3 flex-shrink-0">
-                    <div className="flex gap-2 text-center">
-                        <span
-                            onClick={handleClose}
-                            className="w-3 h-3 bg-red-500 rounded-full cursor-pointer"
-                        />
-                    </div>
-                </div>
-
-                {/* Scrollable iframe content */}
-                <iframe
-                    srcDoc={iframeContent}
-                    className="flex-1 w-full h-full border-0 rounded-b-xl"
-                    title="LinkedIn Content"
-                />
-            </div>
+    <div
+      className={`flex flex-col bg-black/80 border-4 border-gray-700 rounded-xl transform transition-all duration-300 w-full h-full
+      ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}
+    >
+      {/* Top bar with close/minimize */}
+      <div className="flex items-center justify-between bg-gray-900 rounded-t-xl h-10 px-3 flex-shrink-0">
+        <div className="flex gap-2">
+          <span
+            onClick={close}
+            className="w-3 h-3 bg-red-500 rounded-full cursor-pointer"
+          />
+          <span
+            onClick={minimize}
+            className="w-3 h-3 bg-yellow-400 rounded-full cursor-pointer"
+          />
         </div>
-    );
+      </div>
+
+      {/* Iframe content */}
+      <iframe
+        srcDoc={iframeContent}
+        className="flex-1 w-full h-full border-0 rounded-b-xl"
+        title="LinkedIn Content"
+      />
+    </div>
+  );
 }
 
 export default LinkedInPage;

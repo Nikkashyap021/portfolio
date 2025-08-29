@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -13,31 +13,21 @@ import Profile from "./pages/Profile";
 import Settings from "./pages/Settings";
 import GitHubPage from "./pages/GitHubPage";
 import LinkedInPage from "./pages/LinkedInPage";
+import MediumPage from "./pages/MediumPage";
+import VsCodePage from "./pages/VsCodePage.js";
 
 function App() {
-  const [activeIcon, setActiveIcon] = React.useState(null);
-  const location = useLocation();
-
-  // routes where header should not appear
-  const hideHeaderRoutes = ["/linkedin", "/github", "/vscode", "/blog"];
-  const shouldHideHeader = hideHeaderRoutes.includes(location.pathname);
-
   return (
     <div className="h-screen w-screen flex items-center justify-center bg-gray-900">
-      {/* Main container with rounded background */}
       <div
         className="h-[95vh] w-[95vw] rounded-3xl overflow-hidden shadow-2xl flex"
         style={{ backgroundImage: `url(${background_image})` }}
       >
-        {/* Sidebar */}
         <Sidebar />
 
-        {/* Content Area */}
         <main className="flex-1 flex flex-col text-white bg-black/40 p-2">
-          {/* Conditionally show header */}
-          {!shouldHideHeader && <Header />}
+          <Header />
 
-          {/* Page content grows to fill the space between header and footer */}
           <div className="flex-1 overflow-y-auto p-6">
             <Routes>
               <Route path="/" element={<Home />} />
@@ -46,12 +36,13 @@ function App() {
               <Route path="/profile" element={<Profile />} />
               <Route path="/settings" element={<Settings />} />
               <Route path="/github" element={<GitHubPage />} />
-              <Route path="/linkedin" element={<LinkedInPage setActiveIcon={setActiveIcon} />} />
+              <Route path="/linkedin" element={<LinkedInPage />} />
+              <Route path="/medium" element={<MediumPage />} />
+              <Route path="/vscode" element={<VsCodePage />} />
             </Routes>
           </div>
 
-          {/* Footer */}
-          <Footer activeIcon={activeIcon} setActiveIcon={setActiveIcon} />
+          <Footer />
         </main>
       </div>
     </div>

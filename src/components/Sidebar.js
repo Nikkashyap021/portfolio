@@ -15,14 +15,10 @@ function Sidebar() {
     { to: "/settings", icon: settings, label: "Settings" },
   ];
 
-  const bottomLinks = [
-    { to: "/profile", icon: user, label: "Profile" },
-  ];
+  const bottomLinks = [{ to: "/profile", icon: user, label: "Profile" }];
 
   return (
     <div className="w-20 bg-black/60 flex flex-col justify-between items-center py-6">
-
-      {/* Top Section */}
       <div className="flex flex-col gap-6 items-center">
         {topLinks.map(({ to, icon, label }) => (
           <NavLink
@@ -36,15 +32,14 @@ function Sidebar() {
             <img
               src={icon}
               alt={label}
-              className={`w-8 h-8 transition-transform duration-500 
-    ${label === "Settings" ? "hover:rotate-180" : ""}`}
+              className={`w-8 h-8 transition-transform duration-500 ${label === "Settings" ? "hover:rotate-180" : ""
+                }`}
             />
             <span className="text-xs">{label}</span>
           </NavLink>
         ))}
       </div>
 
-      {/* Bottom Section */}
       <div className="flex flex-col gap-6 items-center">
         {bottomLinks.map(({ to, icon, label }) => (
           <NavLink
@@ -60,7 +55,6 @@ function Sidebar() {
           </NavLink>
         ))}
       </div>
-
     </div>
   );
 }
