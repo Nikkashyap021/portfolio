@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import Nikhil_Logo from "../assets/Nikhil_Logo.png"
 function Home() {
     const [dateTime, setDateTime] = useState(new Date());
 
@@ -9,11 +9,7 @@ function Home() {
         return () => clearInterval(timer);
     }, []);
 
-    const projects = [
-        { title: "Project One", description: "This is project one description." },
-        { title: "Project Two", description: "This is project two description." },
-        { title: "Project Three", description: "This is project three description." },
-    ];
+
 
     return (
         <div className="p-6 text-white flex flex-col gap-6">
@@ -21,22 +17,15 @@ function Home() {
             <h1 className="text-4xl font-bold">Welcome to My Portfolio</h1>
 
             {/* Date & Time */}
-            <p className="text-sm text-gray-300">
-                {dateTime.toLocaleDateString()} {dateTime.toLocaleTimeString()}
-            </p>
-
-            {/* Projects */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {projects.map((project, index) => (
-                    <div
-                        key={index}
-                        className="bg-black/50 p-4 rounded-xl shadow-lg hover:scale-105 transition transform"
-                    >
-                        <h2 className="text-xl font-semibold mb-2">{project.title}</h2>
-                        <p className="text-gray-300">{project.description}</p>
-                    </div>
-                ))}
+            <div className="flex justify-around items-center gap-3">
+                <img className="w-1/4 h-min  bg-transparent rounded-lg" src={Nikhil_Logo} />
+                <p className="text-9xl text-gray-300 ">
+                    {dateTime.toLocaleDateString()} {dateTime.toLocaleTimeString()}
+                </p>
             </div>
+
+
+           
         </div>
     );
 }

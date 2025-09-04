@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -17,6 +17,11 @@ import MediumPage from "./pages/MediumPage";
 import VsCodePage from "./pages/VsCodePage.js";
 
 function App() {
+  const location = useLocation();
+
+  // pages where Header should be hidden
+  const hideHeaderOn = ["/linkedin", "/github", "/vscode", "/blog", "/medium"];
+
   return (
     <div className="h-screen w-screen flex items-center justify-center bg-gray-900">
       <div
@@ -26,7 +31,8 @@ function App() {
         <Sidebar />
 
         <main className="flex-1 flex flex-col text-white bg-black/40 p-2">
-          <Header />
+          {/* Hide header on specific pages */}
+          {!hideHeaderOn.includes(location.pathname) && <Header />}
 
           <div className="flex-1 overflow-y-auto p-6">
             <Routes>

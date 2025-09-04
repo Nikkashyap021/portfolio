@@ -33,7 +33,7 @@ function Footer() {
           onClick={() => navigate("/linkedin")}
         />
         <img
-          src={medium}
+          src="https://cdn-icons-png.flaticon.com/512/5968/5968906.png"
           alt="Medium"
           className="w-8 h-8 cursor-pointer hover:scale-110 transition"
           onClick={() => navigate("/medium")}
