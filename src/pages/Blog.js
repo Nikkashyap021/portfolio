@@ -1,6 +1,13 @@
 import React, { useState, useRef } from "react";
-
+import { useEffect } from "react";
 function Blog() {
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    // reset animation each time component mounts
+    setVisible(false);
+    const timer = setTimeout(() => setVisible(true), 50); // small delay so transition triggers
+    return () => clearTimeout(timer);
+  }, []);
   const blogs = [
     { title: "Blog 1", url: "https://example.com/blog1" },
     { title: "Blog 2", url: "https://example.com/blog2" },
@@ -25,9 +32,10 @@ function Blog() {
   const goForward = () => {
     if (currentIndex < history.length - 1) setCurrentIndex(currentIndex + 1);
   };
-
+  
   return (
-    <div className="flex flex-col h-full p-2">
+    <div className={`flex flex-col  p-2  transform transition-all w-full h-full duration-1000 origin-left
+        ${visible ? "opacity-100 scale-100" : "opacity-0 scale-0"}`}>
       {/* Navigation buttons to open blogs */}
       <div className="flex gap-4 mb-2">
         {blogs.map((blog, index) => (
@@ -42,10 +50,10 @@ function Blog() {
       </div>
 
       {/* Browser-style computer screen */}
-      <div className="flex-1 bg-black/80 border-4 border-gray-700 rounded-xl flex flex-col">
+      <div className="flex-1 bg-black/80 rounded-xl flex flex-col">
 
         {/* Browser top bar */}
-        <div className="flex items-center justify-between bg-gray-900 rounded-t-xl h-10 px-3">
+        <div className="flex items-center justify-between p-6  bg-gray-900 rounded-t-xl h-10 px-3">
           <div className="flex items-center gap-2">
             <span className="w-3 h-3 bg-red-500 rounded-full"></span>
 

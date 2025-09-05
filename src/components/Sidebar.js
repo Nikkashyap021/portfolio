@@ -6,13 +6,15 @@ import blog from "../assets/icons/white_blog.svg";
 import education from "../assets/icons/white_education.svg";
 import settings from "../assets/icons/white_setting.svg";
 import user from "../assets/icons/white_user.svg";
-
+import certificate from "../assets/icons/ceritificate.png"
 function Sidebar() {
   const topLinks = [
     { to: "/", icon: home, label: "Home" },
-    { to: "/blog", icon: blog, label: "Blog" },
     { to: "/education", icon: education, label: "Education" },
+    { to: "/certificates", icon: certificate, label: "Certificte" },
+    { to: "/blog", icon: blog, label: "Blog" },
     { to: "/settings", icon: settings, label: "Settings" },
+
   ];
 
   const bottomLinks = [{ to: "/profile", icon: user, label: "Profile" }];
