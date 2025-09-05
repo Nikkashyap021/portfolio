@@ -71,12 +71,12 @@ function MediumPage({ setActiveIcon }) {
         </div>
 
         {/* Posts */}
-       
+
         <div className="flex-1  overflow-auto  mt-3 mb-3 pt-4 pb-4 space-y-4">
           {loading ? (
             <div className="flex flex-col items-center justify-center h-full text-white text-lg">
               <img src={loadingIcon} alt="book_loading" className="w-14 h-14" />
-             <span>Loding</span> 
+              <span>Loding</span>
             </div>
           ) : (
             posts.map((post, idx) => (
@@ -91,9 +91,8 @@ function MediumPage({ setActiveIcon }) {
                   {new Date(post.pubDate).toDateString()}
                 </p>
                 <div
-                  className={`prose max-w-none text-gray-800 border rounded-lg p-2 mt-2 mb-2 ${expandedPost === idx ? "h-80" : "h-20"
-                    }`}
-                  style={{ overflowY: "auto", overflowX: "auto", width: "100%" }}
+                  className={`prose max-w-none text-gray-800 border rounded-lg p-2 mt-2 mb-2 transition-all duration-500 overflow-hidden`}
+                  style={{ height: expandedPost === idx ? "auto" : "5rem" }}
                   dangerouslySetInnerHTML={{
                     __html: expandedPost === idx ? post.content : post.description,
                   }}

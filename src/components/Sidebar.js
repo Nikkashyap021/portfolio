@@ -10,10 +10,11 @@ import certificate from "../assets/icons/ceritificate.png"
 function Sidebar() {
   const topLinks = [
     { to: "/", icon: home, label: "Home" },
-    { to: "/blog", icon: blog, label: "Blog" },
     { to: "/education", icon: education, label: "Education" },
-    { to: "/settings", icon: settings, label: "Settings" },
     { to: "/certificates", icon: certificate, label: "Certificte" },
+    { to: "/blog", icon: blog, label: "Blog" },
+    { to: "/settings", icon: settings, label: "Settings" },
+
   ];
 
   const bottomLinks = [{ to: "/profile", icon: user, label: "Profile" }];

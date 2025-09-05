@@ -18,7 +18,7 @@ function Home() {
 
             {/* Date & Time */}
             <div className="flex justify-around items-center gap-3">
-                <img className="w-1/4 h-min  bg-transparent rounded-lg" src={Nikhil_Logo} />
+                <img className="w-1/4 h-min  bg-transparent rounded-lg" src={Nikhil_Logo} alt="logo" />
                 <p className="text-9xl text-gray-300 ">
                     {dateTime.toLocaleDateString()} {dateTime.toLocaleTimeString()}
                 </p>
