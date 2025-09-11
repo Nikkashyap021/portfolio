@@ -2,8 +2,8 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import vscode from "../assets/icons/vscode.png";
 import git from "../assets/icons/github.png";
+import spotify from "../assets/icons/spotify.png"
 import linkedin from "../assets/icons/linkedin.png";
-import medium from "../assets/icons/black_medium.svg";
 function Footer() {
   const navigate = useNavigate();
 
@@ -21,10 +21,10 @@ function Footer() {
           onClick={() => navigate("/vscode")}
         />
         <img
-          src={git}
-          alt="GitHub"
+          src={spotify}
+          alt="spotify"
           className="w-8 h-8 cursor-pointer hover:scale-110 transition"
-          onClick={() => navigate("/github")}
+          onClick={() => navigate("/spotify")}
         />
         <img
           src={linkedin}
@@ -38,10 +38,10 @@ function Footer() {
           className="w-8 h-8 cursor-pointer hover:scale-110 transition"
           onClick={() => navigate("/medium")}
         />
-       
+
       </div>
       <div></div>
-      
+
     </footer>
   );
 }
